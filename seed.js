@@ -1,0 +1,1 @@
+import './models/data/producto.js'; // Asegúrate de que la ruta sea correcta
