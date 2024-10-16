@@ -10,4 +10,5 @@ npm i morgan
 
 Crear acchivo .env y configurar
 PORT = 8080
-password = 
+URI_MONGO = tu  link de mongo contraseña de tu base de datos
+

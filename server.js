@@ -15,17 +15,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(cors());
 server.use(morgan("dev"));
 
-/* server.get("/", (request, response) => {
-    response.send("Hello World!");
-});
-
-server.get("/saludo", (request, response) => {
-    response.send("Hola bienvenido al mundo de Express");
-});
- */
-
 //router
 server.use("/api", indexRouter);
 server.listen(PORT, ready);
 
-//console.log(process.env.PORT);

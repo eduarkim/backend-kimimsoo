@@ -1,10 +1,30 @@
 import {Router} from 'express';
-import {allUser, userByRole} from '../controllers/users/read.js';
+import {allUser, userByRole, userById} from '../controllers/users/read.js';
+import {create} from '../controllers/users/create.js';
 
+const routerUsers = Router();
 
-const router = Router();
+routerUsers.get('/all', allUser);
+routerUsers.get('/role/:rol', userByRole);
+routerUsers.get('/id/:id',userById)
+routerUsers.post('/create', create);
+routerUsers.post('createAll',)
 
-router.get('/all', allUser);
-router.get('/role/:rol', userByRole);
+export default routerUsers;
 
-export default router;
+/*
+import { Router } from "express";
+import {allUser,userByRole,userById}  from "../controllers/users/read.js";
+import { create } from "../controllers/users/create.js";
+
+const routerUsers = Router()
+
+routerUsers.get('/all', allUser)
+routerUsers.get('/role/:x',userByRole)
+routerUsers.get('/id/:id',userById)
+routerUsers.post('/create',create)
+routerUsers.post('createAll',)
+
+export default routerUsers
+
+*/

@@ -1,9 +1,11 @@
 import express from 'express';
 import { getEmpleados, addEmpleado } from '../controllers/empleados/read.js';
 
-const router = express.Router();
+const routerEmpleados = express.Router();
 
-router.get('/', getEmpleados); // Obtener todos los empleados
-router.post('/', addEmpleado); // Agregar un nuevo empleado
+routerEmpleados.get('/', getEmpleados); // Obtener todos los empleados
 
-export default router;
+routerEmpleados.post('/create', create);
+routerEmpleados.post('createAll',)
+
+export default routerEmpleados;

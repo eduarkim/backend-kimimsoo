@@ -1,27 +1,64 @@
 import Empleado from '../../models/Empleados.js';
 
 // Obtener todos los empleados
-export const getEmpleados = async (req, res) => {
+let allEmpleados = async (req, res) => {
     try {
-        const empleados = await Empleado.find(); // Obtener todos los empleados desde MongoDB
-        res.status(200).json(empleados);
+        let all = await Empleado.find()
+        return res.status(200).json({
+            response: all
+        })
     } catch (error) {
-        console.error("Error al obtener empleados:", error);
-        res.status(500).json({ message: "Error al obtener empleados" });
+        return res.status(500).json({
+            response: error
+        })
+
     }
-};
+}
 
-// Agregar un nuevo empleado
-export const addEmpleado = async (req, res) => {
-    const { nombre, cargo, salario } = req.body;
-
-    const nuevoEmpleado = new Empleado({ nombre, cargo, salario });
-
+let empleadoByNombre = async (req, res) => {
     try {
-        await nuevoEmpleado.save(); // Guardar el empleado en MongoDB
-        res.status(201).json(nuevoEmpleado);
+        let nombreQuery = req.params.nombre;
+        let empleado = await Empleado.findOne({ nombre: nombreQuery });
+        if (empleado) {
+            return res.status(200).json({ response: empleado });
+        } else {
+            return res.status(404).json({ response: 'Empleado no encontrado' });
+        }
     } catch (error) {
-        console.error("Error al agregar empleado:", error);
-        res.status(400).json({ message: "Error al agregar empleado" });
+        return res.status(500).json({ response: error });
     }
-};
+}
+
+let empleadoByCargo = async (req, res) => {
+    try {
+        let cargoQuery = req.params.cargo;
+        let empleado = await Empleado.find({ cargo: cargoQuery });
+        if (empleado) {
+            return res.status(200).json({ response: empleado });
+        } else {
+            return res.status(404).json({ response: 'Empleado no encontrado' });
+        }
+    }
+    catch (error) {
+        return res.status(500).json({ response: error });
+    }
+}
+
+let empleadoBySalario = async (req, res) => {
+    try {
+        let salarioQuery = req.params.salario;
+        let empleado = await Empleado.find({ salario: salarioQuery });
+        if (empleado) {
+            return res.status(200).json({ response: empleado });
+        } else {
+            return res.status(404).json({ response: 'Empleado no encontrado' });
+        }
+    }
+    catch (error) {
+        return res.status(500).json({ response: error });
+    }
+}
+
+
+
+export {allEmpleados, empleadoByNombre, empleadoByCargo, empleadoBySalario}

@@ -2,10 +2,12 @@ import { Router } from 'express';
 import { allTiendas, tiendasByNombre, tiendaByDireccion} from '../controllers/tiendas/read.js';
 //import router from './index.js';
 
-const router = Router();
+const routerTiendas = Router();
 
-router.get('/all', allTiendas); // Endpoint para obtener todas las tiendas
-router.get('/nombre/:nombre', tiendasByNombre); // Endpoint para obtener una tienda por nombre
-router.get('/direccion/:direccion', tiendaByDireccion); // Endpoint para obtener una tienda por dirección
+routerTiendas.get('/all', allTiendas); // Endpoint para obtener todas las tiendas
+routerTiendas.get('/nombre/:nombre', tiendasByNombre); // Endpoint para obtener una tienda por nombre
+routerTiendas.get('/direccion/:direccion', tiendaByDireccion); // Endpoint para obtener una tienda por dirección
+routerTiendas.post('/create', create);
+routerTiendas.post('createAll',)
 
-export default router; // Exportar el router
+export default routerTiendas; // Exportar el router

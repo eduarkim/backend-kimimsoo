@@ -1,9 +1,12 @@
 import express from 'express';
 import { getProductos, addProducto } from '../controllers/producto/read.js';
 
-const router = express.Router();
+const routerProducto = express.Router();
 
-router.get('/', getProductos); // Obtener todos los productos
-router.post('/', addProducto); // Agregar un nuevo producto
+routerProducto.get('/', getProductos); // Obtener todos los productos
 
-export default router;
+routerProducto.post('/create', create);
+routerProducto.post('createAll',)
+
+
+export default routerProducto;

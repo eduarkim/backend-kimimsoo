@@ -1,25 +1,64 @@
 import Producto from '../../models/Producto.js';
 
 // Obtener todos los productos
-export const getProductos = async (req, res) => {
+let allProductos = async (req, res) => {
     try {
-        const productos = await Producto.find(); // Obtener todos los productos desde MongoDB
-        res.status(200).json(productos);
+        let all = await Producto.find()
+        return res.status(200).json({
+            response: all
+        })
     } catch (error) {
-        res.status(500).json({ message: "Error al obtener productos", error });
+        return res.status(500).json({
+            response: error
+        })
+
     }
-};
+}
 
-// Agregar un nuevo producto
-export const addProducto = async (req, res) => {
-    const { nombre, marca, tipo, precio } = req.body;
-
-    const nuevoProducto = new Producto({ nombre, marca, tipo, precio });
-
+let productoByNombre = async (req, res) => {
     try {
-        await nuevoProducto.save(); // Guardar el producto en MongoDB
-        res.status(201).json(nuevoProducto);
+        let nombreQuery = req.params.nombre;
+        let producto = await Producto.findOne({ nombre: nombreQuery });
+        if (producto) {
+            return res.status(200).json({ response: producto });
+        } else {
+            return res.status(404).json({ response: 'Producto no encontrado' });
+        }
     } catch (error) {
-        res.status(400).json({ message: "Error al agregar producto", error });
+        return res.status(500).json({ response: error });
     }
-};
+}
+
+let productoByTipo = async (req, res) => {
+    try {
+        let tipoQuery = req.params.tipo;
+        let producto = await Producto.find({ tipo: tipoQuery });
+        if (producto) {
+            return res.status(200).json({ response: producto });
+        } else {
+            return res.status(404).json({ response: 'Producto no encontrado' });
+        }
+    }
+    catch (error) {
+        return res.status(500).json({ response: error });
+    }
+}
+
+let productoByPrecio = async (req, res) => {
+    try {
+        let precioQuery = req.params.precio;
+        let producto = await Producto.find({ precio: precioQuery });
+        if (producto) {
+            return res.status(200).json({ response: producto });
+        } else {
+            return res.status(404).json({ response: 'Producto no encontrado' });
+        }
+    }
+    catch (error) {
+        return res.status(500).json({ response: error });
+    }
+}
+
+
+export {allProductos, productoByNombre, productoByTipo, productoByPrecio}
+

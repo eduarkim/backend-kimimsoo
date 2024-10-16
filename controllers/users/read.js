@@ -33,4 +33,20 @@ let userByRole = async(req, res) => {
    
 }
 
-export {allUser, userByRole}
+let userById =  async (req,res) => {
+    try {
+        console.log(req.params);
+        
+        let roleQuery = req.params.id
+        let all = await  User.findById(roleQuery)
+        return res.status(200).json({
+            response: all
+        })
+    } catch (error) {
+        return res.status(500).json({
+            response: error
+        })
+    }        
+}
+
+export {allUser, userByRole, userById}

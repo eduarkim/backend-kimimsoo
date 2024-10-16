@@ -38,3 +38,4 @@ const tiendaByDireccion = async (req, res) => {
 };
 
 export { allTiendas, tiendaByNombre, tiendaByDireccion };
+
