@@ -1,11 +1,11 @@
-import Tienda from '../../models/Tienda.js';
+import Tienda from '../../models/Tiendas.js';
 
 const allTiendas = async (req, res) => {
     try {
         const all = await Tienda.find();
         return res.status(200).json({ response: all });
     } catch (error) {
-        return res.status(500).json({ response: error.message });
+        return res.status(500).json({ response: error });
     }
 };
 
@@ -19,7 +19,7 @@ const tiendaByNombre = async (req, res) => {
             return res.status(404).json({ response: 'Tienda no encontrada' });
         }
     } catch (error) {
-        return res.status(500).json({ response: error.message });
+        return res.status(500).json({ response: error});
     }
 };
 
@@ -33,7 +33,7 @@ const tiendaByDireccion = async (req, res) => {
             return res.status(404).json({ response: 'Tienda no encontrada' });
         }
     } catch (error) {
-        return res.status(500).json({ response: error.message });
+        return res.status(500).json({ response: error });
     }
 };
 

@@ -4,7 +4,7 @@ import { create } from '../controllers/empleados/create.js';
 
 const routerEmpleados = express.Router();
 
-routerEmpleados.get('/', allEmpleados); // Obtener todos los empleados
+routerEmpleados.get('/all', allEmpleados); // Obtener todos los empleados
 
 routerEmpleados.post('/create', create);
 //routerEmpleados.post('createAll', createAll);

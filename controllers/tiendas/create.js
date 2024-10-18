@@ -1,4 +1,4 @@
-import Tienda from "../../models/Tienda.js";
+import Tienda from "../../models/Tiendas.js";
 let create = async (req, res) => {
     
         try {
