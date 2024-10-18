@@ -1,4 +1,4 @@
-import Tienda from '../../models/Tiendas.js';
+import Tienda from '../../models/Tienda.js';
 
 const allTiendas = async (req, res) => {
     try {

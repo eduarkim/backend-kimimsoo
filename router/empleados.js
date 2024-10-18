@@ -1,11 +1,12 @@
 import express from 'express';
-import { getEmpleados, addEmpleado } from '../controllers/empleados/read.js';
+import { allEmpleados} from '../controllers/empleados/read.js';
+import { create } from '../controllers/empleados/create.js';
 
 const routerEmpleados = express.Router();
 
-routerEmpleados.get('/', getEmpleados); // Obtener todos los empleados
+routerEmpleados.get('/', allEmpleados); // Obtener todos los empleados
 
 routerEmpleados.post('/create', create);
-routerEmpleados.post('createAll',)
+//routerEmpleados.post('createAll', createAll);
 
 export default routerEmpleados;
