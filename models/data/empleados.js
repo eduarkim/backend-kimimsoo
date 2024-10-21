@@ -1,6 +1,6 @@
 import 'dotenv/config.js';
 import '../../config/database.js';
-import Empleado from '../Empleados.js'; // Asegúrate de que el modelo Empleado esté correctamente importado
+import Empleado from '../Empleados.js'; 
 
 let empleados = [
     { nombre: "Juan Pérez", cargo: "Desarrollador", salario: 50000 },

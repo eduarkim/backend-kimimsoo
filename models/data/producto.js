@@ -52,8 +52,7 @@ let productos = [
     {nombre:"Lámpara de Escritorio" ,marca:"Philips Hue" ,tipo:"Iluminación" ,precio :49.99},
     {nombre:"Bombilla Inteligente" ,marca:"TP-Link" ,tipo:"Iluminación" ,precio :19.99},
     {nombre:"Ventilador de Torre" ,marca:"Dyson" ,tipo:"Electrodomésticos" ,precio :399.99},
-    {nombre:"Calefactor Eléctrico" ,marca:"De'Longhi" ,tipo:"Electrodomésticos"
-    ,precio :149.99},
+    {nombre:"Calefactor Eléctrico" ,marca:"De'Longhi" ,tipo:"Electrodomésticos",precio :149.99},
     {nombre:"Plancha de Pelo" ,marca:"GHD" ,tipo:"Belleza" ,precio :199.99},
     {nombre:"Secadora de Pelo" ,marca:"Dyson" ,tipo:"Belleza" ,precio :399.99},
     {nombre:"Cortadora de Barba" ,marca:"Philips Norelco" ,tipo:"Belleza" ,precio :49.99},
@@ -61,7 +60,7 @@ let productos = [
     {nombre:"Cafetera Express" ,marca:"Breville" ,tipo:"Electrodomésticos" ,precio :299.99},
     {nombre:"Licuadora" ,marca:"Vitamix" ,tipo:"Electrodomésticos" ,precio :399.99},
     {nombre:"Tostadora" ,marca:"Cuisinart" ,tipo:"Electrodomésticos" ,precio :49.99},
-    {nombre:"Hervidor de Agua" ,marca:"Hamilton Beach" ,tipo:"Electrodomésticos"},
+    {nombre:"Hervidor de Agua" ,marca:"Hamilton Beach" ,tipo:"Electrodomésticos", precio :29.99},
     {nombre:"Freidora de Aire" ,marca:"Ninja" ,tipo:"Electrodomésticos" ,precio :99.99},
     {nombre:"Batidora de Vaso" ,marca:"Oster" ,tipo:"Electrodomésticos" ,precio :79.99},
     {nombre:"Máquina de Helados" ,marca:"Cuisinart" ,tipo:"Electrodomésticos" ,precio :59.99},
@@ -121,19 +120,8 @@ let productos = [
     {nombre:"Máquina de Hemodiálisis" ,marca:"Nipro" ,tipo:"Salud" ,precio :4599.99},
     {nombre:"Máquina de Hemodiálisis" ,marca:"Nikkiso" ,tipo:"Salud" ,precio :4699.99},
     {nombre:"Máquina de Hemodiálisis" ,marca:"Toray" ,tipo:"Salud" ,precio :4799.99},
-    {nombre:"Escritorio de Oficina" ,marca:"Herman Miller" ,tipo:"Muebles" ,precio :399.99},
-    
-
-  
-   ...Array.from({ length :70 }, (_, i) => ({
-        nombre:`Producto ${i + 11}`,
-        marca:`Marca ${i + 1}`,
-        tipo:`Tipo ${i % 5}`,
-        precio:(Math.random() * (1000 - 10) + 10).toFixed(2) // Precio aleatorio entre $10 y $1000
-   }))
+    {nombre:"Escritorio de Oficina" ,marca:"Herman Miller" ,tipo:"Muebles" ,precio :399.99}
 ];
 
-// Insertar los productos en la base de datos
+
 Producto.insertMany(productos)
-   .then(() => console.log("Productos insertados"))
-   .catch(error => console.error("Error al insertar productos:", error));

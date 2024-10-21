@@ -1,4 +1,4 @@
-import Empleado from "../../models/Empleado.js";
+import Empleado from "../../models/Empleados.js";
 let create = async (req, res) => {
         
             try {
